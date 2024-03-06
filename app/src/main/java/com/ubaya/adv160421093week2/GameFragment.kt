@@ -56,6 +56,7 @@ class GameFragment : Fragment() {
         generateQuestion()
     }
 
+    //lulll
     private fun generateQuestion() {
         num1 = Random.nextInt(100)
         num2 = Random.nextInt(100)
