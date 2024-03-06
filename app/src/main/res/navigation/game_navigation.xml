@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/game_navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.ubaya.adv160421093week2.MainFragment"
+        android:label="Main Screen"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/actionGameFragment"
+            app:destination="@id/gameFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.ubaya.adv160421093week2.GameFragment"
+        android:label="Game Screen"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/actionMainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <argument
+            android:name="player_name"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_gameFragment_to_gameOverFragment"
+            app:destination="@id/gameOverFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameOverFragment"
+        android:name="com.ubaya.adv160421093week2.GameOverFragment"
+        android:label="fragment_game_over"
+        tools:layout="@layout/fragment_game_over" >
+        <action
+            android:id="@+id/action_gameOverFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <argument
+            android:name="score"
+            app:argType="integer" />
+    </fragment>
+</navigation>
